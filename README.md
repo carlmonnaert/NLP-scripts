@@ -271,22 +271,22 @@ $$
 
 ## 👥 Auteurs
 
-- **Antoine Ollivier** - Télécom Paris (Promo 2026)
+- **Carl Monnaert - Agshay Nadanakumar - Antoine Ollivier** - Télécom Paris (Promo 2027)
 - **Projet** : Computational Science (Créneau D)
 
 ---
 
 ## 📝 Licence
 
-Projet académique - Télécom Paris 2025
+Projet académique - Télécom Paris 2026
 
 ---
 
 ## 🆘 Contact
 
 Pour toute question :
-- Email : antoine.ollivier@telecom-paris.fr
-- GitHub : [Votre pseudo GitHub]
+- Email : carl.monnaert@telecom-paris.fr antoine.ollivier@telecom-paris.fr agshay.nadanakumar@telecom-paris.fr
+- GitHub : carlmonnaert
 
 ---
 
