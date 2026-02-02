@@ -1,0 +1,58 @@
+Title: Gender and Racial Stereotypes in Cinema (1960–2020)
+
+Scope and Data
+- Corpus: ~1,500 film scripts (1960–2020); aggregated per decade.
+- Sources: Kaggle Movie Scripts Corpus; project results in results/*.csv.
+- Units: Frequencies are per 1,000 tokens to normalize script length.
+
+Methodological Tools and Coherence
+- Lexicon-based detection: Curated dictionaries for gender and racial markers (see src/dictionaries.py). Coherent for tracking explicit representational language over time.
+- NLP preprocessing: Regex cleaning and tokenization (src/parser.py) ensure reliable term counts and remove stage directions.
+- Aggregation and statistics: Decadal aggregation, ratio metrics, and density means (src/stats_analysis.py) align with temporal reconfiguration analysis.
+- Stereotype scoring: Per-film composite scores (results/stereotype_detection_scores.csv) provide interpretable intensity measures across categories.
+- Co-occurrence profiling: Association of groups (Women/Men/Afro-American/Asian/Hispanic/LGBTQ+) with themes (Violence, Crime, Poverty, Domesticity, Emotion) identifies narrative coupling.
+- Semantic shift: Word-embedding proximity by decade (results/semantic_proximity_evolution.csv) captures evolution in semantic neighborhoods (power vs submission), complementing counts.
+- Triangulation: Counts + associations + semantics produce coherent evidence on representational reconfiguration.
+
+Key Findings (Decadal Trends)
+Gender representation and stereotypes
+- Female presence rises: Female mentions frequency grows from 10.37 (1960s) to 15.24 (2020s) per 1,000 words; male frequency declines from 20.31 → 17.27 (results/gender_bias_by_decade.csv).
+- Closing the gap: Gender ratio (female/male mentions) increases from 0.51 (1960s) → 0.88 (2020s), indicating more balanced dialogue presence.
+- Objectification moderates: Female objectification markers decline from 0.84 → 0.63 per 1,000; female negative stereotypes decline from 0.121 → 0.083.
+- Bias intensity drops: Sexism score (decadal composite) decreases from 32.21 (1960s) → 18.58 (2020s) (results/stereotype_evolution_by_decade.csv).
+- Film-level variability: Examples illustrate heterogeneity—Booksmart (2010s) shows high female dialogue dominance (ratio 3.47) yet notable objectification (4.40); Novitiate (2010s) extreme ratio (11.58) reflects topical focus rather than systemic shift (results/gender_bias_by_film.csv).
+
+Racial/ethnic representation and stereotypes
+- Mentions by group (per 1,000 words): African-American increases (0.33 → 0.66, 1960s→2020s); Asian decreases (0.16 → 0.10); Hispanic modest (0.04 → 0.05); White references remain substantial (≈0.32–0.46) (results/ethnic_bias_by_decade.csv).
+- Stereotype markers: Criminal declines slightly (0.113 → 0.105); Poverty declines (0.097 → 0.051); Exotic shows mixed change (0.025 → 0.079), suggesting persistent exoticization in recent scripts (results/ethnic_bias_by_decade.csv).
+- Bias intensity drops: Racism score falls decade-by-decade (7.82 → 6.17); homophobia also declines (8.76 → 6.92); total stereotype score drops from 48.79 → 31.67 (results/stereotype_evolution_by_decade.csv).
+
+Narrative associations (Co-occurrence)
+- Women vs Men: Women strongly co-occur with Domesticity (5.90) and Emotion (1.29), Men with Violence (2.85) and Crime (0.28). This evidences durable gendered narrative roles despite improved dialogue parity (results/cooccurrence_matrix.csv).
+- Minoritized groups: Afro-American and Hispanic entities co-occur comparatively more with Crime/Poverty than Women/Men, indicating legacy coupling of disadvantage and criminality (e.g., Afro-American Crime 0.26, Poverty 0.20).
+
+Semantic reconfiguration (Embeddings)
+- Empowerment ratios (power vs submission semantics):
+  - Women: 0.83 (1960s) → ≈0.80 (2020s), recovering from a 1970s trough (0.61). The 2020 value indicates stronger proximity to power semantics than in 1970–1990, though not fully surpassing submission proximity in earlier decades (results/semantic_proximity_evolution.csv).
+  - Afro-American: 0.77 (1960s) → 0.95 (2020s), consistent upward shift toward power-related semantics.
+  - LGBTQ+: Mixed trajectory; missing/insufficient 2020 data in provided output.
+
+Bias density and variance (robustness)
+- Mean density per decade: Sexism density remains ~1.48–1.66 (per 1,000) across 1970–2010, with a 2020 spike (3.03) but very high variance (std 5.66) and small sample (n=12), cautioning interpretation (results/bias_evolution_by_decade.csv).
+- Racism and homophobia densities are flatter and slightly trending downward over decades.
+
+Answering the Research Question
+“To what extent does cinema reconfigure the social representation of marginalized identities over time?”
+- Directional change: Cinema has measurably reduced explicit stereotype language (sexism, racism, homophobia) since the 1960s, increased female dialogue presence, and shifted some semantic neighborhoods toward power over submission, particularly for Afro-American representations.
+- Partial reconfiguration: Despite progress, durable narrative couplings persist—women with domesticity/emotion and minoritized groups with crime/poverty—indicating that deeper role- and theme-level reconfiguration lags behind surface-level lexical moderation and parity gains.
+- Magnitude: The decadal reductions in composite stereotype scores (≈−35% total from 1960s→2020s) and closing gender ratio (0.51→0.88) signal substantive but incomplete transformation. Embedding-based empowerment ratios corroborate semantic improvements, strongest for Afro-American groups.
+- Temporal nuance: Most improvements consolidate in 1990–2010; some 2020 metrics reflect small-sample volatility. The exoticization uptick suggests specific stereotype modalities can persist or re-emerge even as others recede.
+
+Interpretation and Limitations
+- Lexicon coverage: Explicit markers are captured; implicit bias or context-dependent meanings may be undercounted.
+- Co-occurrence does not imply causality: It indicates narrative proximity, not intent.
+- Embedding interpretability: Semantic proximity indicates association, not evaluation; requires careful domain reading.
+- Sampling: 2020 decade has few scripts in the dataset; trend estimates for that period are less stable.
+
+Conclusion
+- Extent of reconfiguration: Moderate-to-strong at the lexical/mention level; modest at the thematic/narrative association level. Cinema increasingly centers marginalized identities in dialogue and reduces overtly biased language, yet entrenched role associations remain, indicating a continuing project of representational change rather than completed transformation.
